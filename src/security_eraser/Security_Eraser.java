@@ -73,7 +73,7 @@ public class Security_Eraser extends Application {
             @Override
             public void handle(Event event) {
                 primaryStage.close();
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
         });
         menu.getItems().add(quit);
