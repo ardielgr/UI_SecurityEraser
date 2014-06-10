@@ -44,7 +44,9 @@ import javafx.stage.Window;
  */
 
 public class Security_Eraser extends Application {
-   
+    final static int MAX = 122;
+    final static int MIN = 48;
+    
     @Override
     public void start(Stage primaryStage) {
                
@@ -95,7 +97,17 @@ public class Security_Eraser extends Application {
         
         //Menu codificacion
         Menu tools = new Menu("Tools");
-        tools.getItems().add(new MenuItem("Random"));
+        MenuItem random = new MenuItem("Random");
+        random.setOnAction(new EventHandler(){
+            @Override
+            public void handle(Event event){
+                Eraser_Method.Random(MIN,MAX);
+                System.out.println("Deberia modificarse el fichero");
+            }
+        });
+        tools.getItems().add(random);
+      //  tools.getItems().add(new MenuItem("Random"));
+        
         
         menuBar.getMenus().add(tools);
         
