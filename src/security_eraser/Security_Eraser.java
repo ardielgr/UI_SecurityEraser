@@ -9,7 +9,10 @@ package security_eraser;
 import java.awt.Desktop;
 import java.awt.Desktop.Action;
 import java.io.File;
+import java.io.IOException;
 import static java.lang.System.exit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -55,10 +58,20 @@ public class Security_Eraser extends Application {
             @Override
             public void handle(Event event){
                 System.out.println("Hola");
-                FilePathTreeItem.main(args);
+                //FilePathTreeItem.main(args);
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Open Resource File");
+                File file;
+                file = fileChooser.showOpenDialog(primaryStage);
+                if (file != null){
+                    try {
+                        OpenFile(file);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Security_Eraser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 
             }
-
         });
         menu.getItems().add(open);
        // menu.getItems().add(new MenuItem("Open"));
