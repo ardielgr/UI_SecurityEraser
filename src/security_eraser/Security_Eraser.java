@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import java.awt.Desktop.Action;
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import static java.lang.System.exit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,7 +66,7 @@ public class Security_Eraser extends Application {
                 file = fileChooser.showOpenDialog(primaryStage);
                 if (file != null){
                     try {
-                        OpenFile(file);
+                        Eraser_Method.OpenFile(file);
                     } catch (IOException ex) {
                         Logger.getLogger(Security_Eraser.class.getName()).log(Level.SEVERE, null, ex);
                     }

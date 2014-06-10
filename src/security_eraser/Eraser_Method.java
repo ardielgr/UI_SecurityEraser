@@ -9,6 +9,7 @@ package security_eraser;
  *
  * @author Aegis
  */
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,26 +22,22 @@ public class Eraser_Method {
     final static int MIN = 48;
 	
     String variable_;
-    static RandomAccessFile file_;
+    //static RandomAccessFile file_;
+    static File file_;
     static ArrayList<String> buffer = new ArrayList<String>();
     	
     public Eraser_Method(String arg) throws FileNotFoundException {
 	variable_ = arg;
-	file_ = new RandomAccessFile(variable_, "rw");
+	//file_ = new RandomAccessFile(variable_, "rw");
+        file_ = new File(variable_,"rw");
     }
     
-    public void OpenFile(File file) throws IOException{
+    public static void OpenFile(File file_) throws IOException{
         String blabla;
-        blabla = file.getName();
-        Eraser_Method Eraser = new Eraser_Method(blabla);
-        try{
-            do{
-                System.out.println(file_.readLine());
-            }while ((file_.readLine())!= null);
-        }catch (IOException e){
-            System.out.println("Error con el fichero");
-            return;
-        }
+        blabla = file_.getName();
+        
+        File file = new File(blabla);
+        System.out.println("Supuestamente abro el fichero");
     }
     
     public static int Random(int min, int max){
@@ -68,7 +65,7 @@ public class Eraser_Method {
         return line_number;
     }*/
     
-    public void FileDump() throws IOException{
+    /*public void FileDump() throws IOException{
         String line;
         line = file_.readLine();
         while (line != null){
@@ -102,7 +99,7 @@ public class Eraser_Method {
         } catch(IOException e){
             System.out.println("Error con el fichero");
         }
-    }
+    }*/
     
     
 }
